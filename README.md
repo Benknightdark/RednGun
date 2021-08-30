@@ -7,3 +7,5 @@
   - NavigationService
   - ShellService
   - CommonService
+## nuget 下載網址
+- https://www.nuget.org/packages/RedGunMVVM/
