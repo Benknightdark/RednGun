@@ -19,7 +19,7 @@ namespace Example
 
             SetUpRedGun.RegsiterViewModelLocatorDependencies();
 
-            MainPage = new NavigationPage(new CreateToDoPage());
+            MainPage = new NavigationPage(new ToDoListPage());
         }
 
         protected override void OnStart()

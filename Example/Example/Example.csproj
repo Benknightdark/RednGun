@@ -16,9 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="RedGunMVVM">
-      <HintPath>..\..\RedGunMVVM\bin\Release\netstandard2.1\RedGunMVVM.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\RedGunMVVM\RedGunMVVM.csproj" />
   </ItemGroup>
 
   <ItemGroup>

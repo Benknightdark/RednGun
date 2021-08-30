@@ -12,8 +12,6 @@ namespace Example.ViewModels
             set { SetProperty(ref _Title, value); }
         }
         public CreateToDoPageViewModel() {
-            Title = "Create ToDo Item";
-
             Device.BeginInvokeOnMainThread(() =>
             {
                 Title = "Create ToDo Item";
