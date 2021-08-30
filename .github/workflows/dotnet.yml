@@ -20,7 +20,7 @@ jobs:
     - name: Build
       run: dotnet build RedGunMVVM -c Release
     - name: Pack
-      run: dotnet pack RedGunMVVM  --configuration Release -o nupkg 
+      run: dotnet pack RedGunMVVM  -c Release -o nupkg 
     - name: Publish nuget package
       run: find . -name *.nupkg -type f -print0 | xargs -0 -I pkg dotnet nuget push pkg -k $nuget_api_key -s "https://api.nuget.org/v3/index.json" --skip-duplicate
       env:
