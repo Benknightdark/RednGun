@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:RedGun="clr-namespace:RedGunMVVM;assembly=RedGunMVVM"
              RedGun:ViewModelLocator.AutoWireViewModel="true"
+             Title="{Binding Title}"
              x:Class="Example.Views.ToDoListPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary"

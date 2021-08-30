@@ -1,24 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Windows.Input;
-using Example.Models;
+﻿using Example.Models;
 using Example.Views;
 using RedGunMVVM.ViewModels;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Example.ViewModels
 {
-   public  class ToDoListPageViewModel:RedGunViewModel
+    public class ToDoListPageViewModel : RedGunViewModel
     {
         private string _Title = string.Empty;
+
         public string Title
         {
             get { return _Title; }
             set { SetProperty(ref _Title, value); }
         }
-        ObservableCollection<TodoItem> _TodoListItems = new ObservableCollection<TodoItem>();
+
+        private ObservableCollection<TodoItem> _TodoListItems = new ObservableCollection<TodoItem>();
+
         public ObservableCollection<TodoItem> TodoListItems
         {
             get => _TodoListItems;
@@ -28,11 +29,21 @@ namespace Example.ViewModels
                 RaisePropertyChanged(nameof(TodoListItems));
             }
         }
-        public ICommand GoToCreateToDoPageCommand;
-        public ToDoListPageViewModel() {
-            Device.BeginInvokeOnMainThread(() =>
+
+        public ICommand GoToCreateToDoPageCommand { get; set; }
+
+        public ToDoListPageViewModel()
+        {
+            Title = "ToDo List";
+            Device.BeginInvokeOnMainThread(async () =>
             {
-                Title = "ToDo List";
+                var ToDoListString = await SecureStorage.GetAsync("todo_list");
+                if (!string.IsNullOrEmpty(ToDoListString))
+                {
+                    var ToDoListData = System.Text.Json.JsonSerializer.Deserialize<ObservableCollection<TodoItem>>(ToDoListString);
+                    TodoListItems = ToDoListData;
+                }
+
             });
             GoToCreateToDoPageCommand = new Command(async () =>
               {

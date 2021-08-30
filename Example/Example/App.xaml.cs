@@ -16,6 +16,7 @@ namespace Example
             SetUpRedGun.RegisterBaseRedGunViewModels();
 
             SetUpRedGun.RegisterRedGunViewModel<CreateToDoPageViewModel>();
+            SetUpRedGun.RegisterRedGunViewModel<ToDoListPageViewModel>();
 
             SetUpRedGun.RegsiterViewModelLocatorDependencies();
 
