@@ -13,8 +13,6 @@
     <FileVersion>1.0.0.0</FileVersion>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <PackageReleaseNotes>
-    使用方式：https://github.com/Benknightdark/YoManSSO
-    範例程式：https://github.com/Benknightdark/YoManSSOExample
     </PackageReleaseNotes>
   </PropertyGroup>
 
