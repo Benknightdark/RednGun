@@ -1,5 +1,4 @@
-﻿using Autofac;
-using Example.ViewModels;
+﻿using Example.ViewModels;
 using Example.Views;
 using RedGunMVVM;
 using Xamarin.Forms;
@@ -11,9 +10,11 @@ namespace Example
         public App()
         {
             InitializeComponent();
+
             SetUpRedGun.RegisterRedGunServices();
 
-            SetUpRedGun.RegisterRedGunViewModels();
+            SetUpRedGun.RegisterBaseRedGunViewModels();
+
             SetUpRedGun.RegisterRedGunViewModel<CreateToDoPageViewModel>();
 
             SetUpRedGun.RegsiterViewModelLocatorDependencies();
