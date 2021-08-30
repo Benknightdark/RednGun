@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Reflection;
 using Xamarin.Forms;
 
@@ -33,22 +34,22 @@ namespace RedGunMVVM
 
         private static void OnAutoWireViewModelChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var view = bindable as Element;
-            if (view == null)
+            var ViewPage = bindable as Element;
+            if (ViewPage == null)
             {
                 return;
             }
-            var viewType = view.GetType();
-            var viewName = viewType.FullName.Replace(".Views.", ".ViewModels.");
-            var viewModelName = string.Format(CultureInfo.InvariantCulture, "{0}ViewModel", viewName);
-            var viewModelType = Type.GetType(viewModelName); 
-
-            if (viewModelType == null)
+            var ViewType = ViewPage.GetType();
+            var ViewPageName = ViewType.FullName.Replace(".Views.", ".ViewModels.");
+            var ViewModelName = string.Format(CultureInfo.InvariantCulture, "{0}ViewModel", ViewPageName);
+            var AppProjectRootNameSpace = ViewModelName.Split(".")[0];
+            Assembly ExternalAssembly = Assembly.Load(AppProjectRootNameSpace);
+            var ViewModelType = ExternalAssembly.GetType(ViewModelName);
+            if (ViewModelType == null)
             {
                 return;
             }
-            var viewModel = _container.Resolve(viewModelType);
-            view.BindingContext = viewModel;
+            ViewPage.BindingContext = _container.Resolve(ViewModelType);
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Autofac;
+using Example.ViewModels;
+using Example.Views;
+using RedGunMVVM;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Example
 {
@@ -9,8 +11,14 @@ namespace Example
         public App()
         {
             InitializeComponent();
+            SetUpRedGun.RegisterRedGunServices();
 
-            MainPage = new MainPage();
+            SetUpRedGun.RegisterRedGunViewModels();
+            SetUpRedGun.RegisterRedGunViewModel<CreateToDoPageViewModel>();
+
+            SetUpRedGun.RegsiterViewModelLocatorDependencies();
+
+            MainPage = new NavigationPage(new CreateToDoPage());
         }
 
         protected override void OnStart()

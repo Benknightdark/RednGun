@@ -7,6 +7,8 @@ namespace RedGunMVVM
 {
     public static class SetUpRedGun
     {
+        private static ContainerBuilder Builder = new ContainerBuilder();
+
         /// <summary>
         /// 註冊RedGun服務
         /// </summary>
@@ -19,14 +21,29 @@ namespace RedGunMVVM
         }
 
         /// <summary>
-        /// 註冊RedGun ViewModels
+        /// 註冊Base RedGun ViewModels
         /// </summary>
-        public static ContainerBuilder RegisterRedGunViewModel()
+        public static void RegisterBaseRedGunViewModels()
         {
-            var builder = new ContainerBuilder();
-            builder.RegisterType<RedGunViewModel>();
-            return builder;
+            Builder.RegisterType<RedGunViewModel>();
         }
 
+        /// <summary>
+        /// 註冊RedGun ViewModel
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void RegisterRedGunViewModel<T>()
+        {
+            Builder.RegisterType<T>();
+        }
+
+        /// <summary>
+        /// 註冊ViewModelLocator Dependencies
+        /// </summary>
+        /// <param name="RedGunViewModels"></param>
+        public static void RegsiterViewModelLocatorDependencies()
+        {
+            ViewModelLocator.RegisterDependencies(Builder);
+        }
     }
 }

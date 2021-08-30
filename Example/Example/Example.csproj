@@ -16,6 +16,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\RedGunMVVM\RedGunMVVM.csproj" />
+    <Reference Include="RedGunMVVM">
+      <HintPath>..\..\RedGunMVVM\bin\Release\netstandard2.1\RedGunMVVM.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\CreateToDoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
