@@ -30,24 +30,45 @@ namespace Example.ViewModels
             }
         }
 
+        private TodoItem _Item = new TodoItem();
+
+        public TodoItem Item
+        {
+            get { return _Item; }
+            set { SetProperty(ref _Item, value); }
+        }
+
         public ICommand GoToCreateToDoPageCommand { get; set; }
+        public ICommand SelectCommand { get; set; }
+        public ICommand PageAppearingCommand { get; set; }
 
         public ToDoListPageViewModel()
         {
             Title = "ToDo List";
-            Device.BeginInvokeOnMainThread(async () =>
+            PageAppearingCommand = new Command(() =>
             {
-                var ToDoListString = await SecureStorage.GetAsync("todo_list");
-                if (!string.IsNullOrEmpty(ToDoListString))
+                Device.BeginInvokeOnMainThread(async () =>
                 {
-                    var ToDoListData = System.Text.Json.JsonSerializer.Deserialize<ObservableCollection<TodoItem>>(ToDoListString);
-                    TodoListItems = ToDoListData;
-                }
-
+                    var ToDoListString = await SecureStorage.GetAsync("todo_list");
+                    if (!string.IsNullOrEmpty(ToDoListString))
+                    {
+                        var ToDoListData = System.Text.Json.JsonSerializer.Deserialize<ObservableCollection<TodoItem>>(ToDoListString);
+                        TodoListItems = ToDoListData;
+                    }
+                });
             });
+
             GoToCreateToDoPageCommand = new Command(async () =>
               {
                   await _navigationService.PushAsync(new CreateToDoPage());
+              });
+            SelectCommand = new Command(async () =>
+              {
+                  if (Item != null)
+                  {
+                      await _navigationService.PushAsync(new ToDoDetailPage(), new { Item = Item });
+                      Item = null;
+                  }
               });
         }
     }
