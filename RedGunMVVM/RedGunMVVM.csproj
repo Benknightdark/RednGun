@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>RedGunMVVM</PackageId>
-    <Version>1.0.0.2</Version>
+    <Version>1.0.0.6</Version>
     <Authors>Ben</Authors>
     <Company>Ben</Company>
     <Description>Xamarin.Forms mvvm套件</Description>
@@ -23,11 +23,13 @@
 🔥 文件：https://github.com/Benknightdark/RednGun/blob/main/README.md
 🔥 範例專案：https://github.com/Benknightdark/RednGun/tree/main/Example      
     </PackageReleaseNotes>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.2.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
+      <None Include="images\icon.png" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>
