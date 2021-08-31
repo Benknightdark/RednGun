@@ -7,9 +7,10 @@ using Xamarin.Forms;
 
 namespace Example.ViewModels
 {
-    public class CreateToDoPageViewModel:RedGunViewModel
+    public class CreateToDoPageViewModel : RedGunViewModel
     {
         private string _Title = string.Empty;
+
         public string Title
         {
             get { return _Title; }
@@ -17,13 +18,17 @@ namespace Example.ViewModels
         }
 
         private string _ItemText = string.Empty;
+
         public string ItemText
         {
             get { return _ItemText; }
             set { SetProperty(ref _ItemText, value); }
         }
+
         public ICommand AddNewTodoItemCommand { get; set; }
-        public CreateToDoPageViewModel() {
+
+        public CreateToDoPageViewModel()
+        {
             Title = "Create ToDo Item";
             AddNewTodoItemCommand = new Command(async () =>
               {
@@ -31,15 +36,19 @@ namespace Example.ViewModels
                   var ToDoListData = new List<TodoItem>();
                   if (!string.IsNullOrEmpty(ToDoListString))
                   {
-                       ToDoListData = System.Text.Json.JsonSerializer.Deserialize<List<TodoItem>>(ToDoListString);
+                      ToDoListData = System.Text.Json.JsonSerializer.Deserialize<List<TodoItem>>(ToDoListString);
                   }
                   ToDoListData.Add(new TodoItem
                   {
                       ID = System.Guid.NewGuid(),
                       Text = ItemText
                   });
-                  await SecureStorage.SetAsync("todo_list",System.Text.Json.JsonSerializer.Serialize(ToDoListData));
-                  await _navigationService.PopAsync();
+                  await SecureStorage.SetAsync("todo_list", System.Text.Json.JsonSerializer.Serialize(ToDoListData));
+                  var DialogCallback = await _dialogService.DisplayAlert("Notice", "Item Created Successed", "OK", "Cancel");
+                  if (!DialogCallback || DialogCallback)
+                  {
+                      await _navigationService.PopAsync();
+                  }
               });
         }
     }

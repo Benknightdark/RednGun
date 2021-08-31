@@ -9,3 +9,5 @@
   - CommonService
 ## nuget 下載網址
 - https://www.nuget.org/packages/RedGunMVVM/
+## 範例專案
+- https://github.com/Benknightdark/RednGun/tree/main/Example
