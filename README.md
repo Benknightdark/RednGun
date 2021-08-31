@@ -1,4 +1,4 @@
-# RedGun MVVM
+# RedGun MVVM [![CodeFactor](https://www.codefactor.io/repository/github/benknightdark/redngun/badge)](https://www.codefactor.io/repository/github/benknightdark/redngun)
 > Xamarin.Forms mvvm套件
 ## 功能
 - ViewModel Locator
