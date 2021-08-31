@@ -7,9 +7,11 @@
              x:Class="Example.Views.ToDoDetailPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Item.Text}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame BorderColor="Orange"
+                               CornerRadius="10"
+                               HasShadow="True">
+                <Label Text="{Binding Item.Text}" />
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
