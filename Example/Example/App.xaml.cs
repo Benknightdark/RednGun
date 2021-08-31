@@ -16,10 +16,12 @@ namespace Example
             SetUpRedGun.RegisterBaseRedGunViewModels();
 
             SetUpRedGun.RegisterRedGunViewModel<CreateToDoPageViewModel>();
+            SetUpRedGun.RegisterRedGunViewModel<ToDoListPageViewModel>();
+            SetUpRedGun.RegisterRedGunViewModel<ToDoDetailPageViewModel>();
 
             SetUpRedGun.RegsiterViewModelLocatorDependencies();
 
-            MainPage = new NavigationPage(new CreateToDoPage());
+            MainPage = new NavigationPage(new ToDoListPage());
         }
 
         protected override void OnStart()

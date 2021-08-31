@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>RedGunMVVM</PackageId>
-    <Version>1.0.0.1</Version>
+    <Version>1.0.0.2</Version>
     <Authors>Ben</Authors>
     <Company>Ben</Company>
     <Description>Xamarin.Forms mvvm套件</Description>
@@ -13,6 +13,15 @@
     <FileVersion>1.0.0.0</FileVersion>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <PackageReleaseNotes>
+    🔥 功能
+      🔫 ViewModel Locator
+      🔫 客製化Services
+          ✨ DialogService
+          ✨ NavigationService
+          ✨ ShellService
+          ✨ CommonService
+    🔥 文件：https://github.com/Benknightdark/RednGun/blob/main/README.md
+    🔥 範例專案：https://github.com/Benknightdark/RednGun/tree/main/Example      
     </PackageReleaseNotes>
   </PropertyGroup>
 

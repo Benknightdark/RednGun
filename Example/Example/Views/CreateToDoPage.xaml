@@ -7,9 +7,8 @@
              x:Class="Example.Views.CreateToDoPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand" />
+            <Entry Placeholder="Enter ToDo Item Text" Text="{Binding ItemText}"></Entry>
+            <Button Text="Add New ToDo Item" Command="{Binding AddNewTodoItemCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

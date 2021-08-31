@@ -1,12 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:RedGun="clr-namespace:RedGunMVVM;assembly=RedGunMVVM"
+             RedGun:ViewModelLocator.AutoWireViewModel="true"
+             Title="{Binding Title}"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="Example.Views.ToDoListPage">
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior
+                EventName="Appearing"
+                Command="{Binding PageAppearingCommand}" />
+    </ContentPage.Behaviors>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     Text="Add"
+                     Priority="0"
+                     Command="{Binding GoToCreateToDoPageCommand}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <CollectionView 
+                    SelectionMode="Single"
+                    ItemsSource="{Binding TodoListItems}"
+                    SelectedItem="{Binding Item, Mode=TwoWay}"
+                    SelectionChangedCommand="{Binding SelectCommand}"
+                        ItemsLayout="VerticalGrid, 2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Orange"
+                               CornerRadius="10"
+                               HasShadow="True">
+                            <Label Text="{Binding Text}" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

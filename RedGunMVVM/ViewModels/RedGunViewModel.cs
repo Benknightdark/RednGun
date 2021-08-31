@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace RedGunMVVM.ViewModels
 {
-    public class RedGunViewModel
+    public class RedGunViewModel : INotifyPropertyChanged
     {
         // 彈跳視窗Service
         public DialogService _dialogService => DependencyService.Get<DialogService>();

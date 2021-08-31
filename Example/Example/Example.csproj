@@ -11,18 +11,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
+    <PackageReference Include="System.Text.Json" Version="5.0.2" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.0-pre2" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="RedGunMVVM">
-      <HintPath>..\..\RedGunMVVM\bin\Release\netstandard2.1\RedGunMVVM.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\RedGunMVVM\RedGunMVVM.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Views\CreateToDoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ToDoDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ToDoListPage.xaml">
