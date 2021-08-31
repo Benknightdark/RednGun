@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<views:RedGunContent  
+             xmlns:views="clr-namespace:RedGunMVVM.Views;assembly=RedGunMVVM"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
              Title="{Binding Title}"
-             xmlns:RedGun="clr-namespace:RedGunMVVM;assembly=RedGunMVVM"
-             RedGun:ViewModelLocator.AutoWireViewModel="true"
              x:Class="Example.Views.CreateToDoPage">
     <ContentPage.Content>
         <StackLayout>
@@ -11,4 +11,4 @@
             <Button Text="Add New ToDo Item" Command="{Binding AddNewTodoItemCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</views:RedGunContent>
