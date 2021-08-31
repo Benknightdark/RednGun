@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RedGunMVVM.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace Example.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ToDoListPage : ContentPage
+    public partial class ToDoListPage : RedGunContent
     {
         public ToDoListPage()
         {
