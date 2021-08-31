@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:RedGun="clr-namespace:RedGunMVVM;assembly=RedGunMVVM"
-             RedGun:ViewModelLocator.AutoWireViewModel="true"
-             Title="{Binding Title}"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             x:Class="Example.Views.ToDoListPage">
+<views:RedGunContent
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:views="clr-namespace:RedGunMVVM.Views;assembly=RedGunMVVM"
+    Title="{Binding Title}"
+    x:Class="Example.Views.ToDoListPage">
     <ContentPage.Behaviors>
         <xct:EventToCommandBehavior
                 EventName="Appearing"
@@ -19,7 +19,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <CollectionView 
+            <CollectionView
                     SelectionMode="Single"
                     ItemsSource="{Binding TodoListItems}"
                     SelectedItem="{Binding Item, Mode=TwoWay}"
@@ -37,4 +37,4 @@
             </CollectionView>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</views:RedGunContent>
