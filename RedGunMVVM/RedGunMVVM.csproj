@@ -1,35 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <PackageId>RedGunMVVM</PackageId>
-    <Version>1.0.0.7</Version>
-    <Authors>Ben</Authors>
-    <Company>Ben</Company>
-    <Description>Xamarin.Forms mvvm套件</Description>
-    <PackageProjectUrl>https://github.com/Benknightdark/RednGun</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Benknightdark/RednGun</RepositoryUrl>
-    <RepositoryType>GitHub</RepositoryType>
-    <FileVersion>1.0.0.0</FileVersion>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <PackageReleaseNotes>
-🔥 功能
-    🔫 ViewModel Locator
-    🔫 客製化Services
-        ✨ DialogService
-        ✨ NavigationService
-        ✨ ShellService
-        ✨ CommonService
-🔥 文件：https://github.com/Benknightdark/RednGun/blob/main/README.md
-🔥 範例專案：https://github.com/Benknightdark/RednGun/tree/main/Example      
-    </PackageReleaseNotes>
-    <PackageIcon>icon.png</PackageIcon>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.3.0" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
-      <None Include="images\icon.png" Pack="true" PackagePath="" />
-  </ItemGroup>
-
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<PackageId>RedGunMVVM</PackageId>
+		<Version>1.0.0.7</Version>
+		<Authors>Ben</Authors>
+		<Company>Ben</Company>
+		<Description>Xamarin.Forms mvvm套件</Description>
+		<PackageProjectUrl>https://github.com/Benknightdark/RednGun</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Benknightdark/RednGun</RepositoryUrl>
+		<RepositoryType>GitHub</RepositoryType>
+		<FileVersion>1.0.0.0</FileVersion>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<PackageReleaseNotes>
+			🔥 功能
+			🔫 ViewModel Locator
+			🔫 客製化Services
+			✨ DialogService
+			✨ NavigationService
+			✨ ShellService
+			✨ CommonService
+			🔥 文件：https://github.com/Benknightdark/RednGun/blob/main/README.md
+			🔥 範例專案：https://github.com/Benknightdark/RednGun/tree/main/Example
+		</PackageReleaseNotes>
+		<PackageIcon>icon.png</PackageIcon>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Autofac" Version="6.3.0" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
+		<None Include="images\icon.png" Pack="true" PackagePath="" />
+	</ItemGroup>
 </Project>
